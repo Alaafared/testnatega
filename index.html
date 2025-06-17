@@ -7,10 +7,44 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: #ffffff;
+            --text-color: #2c3e50;
+            --header-bg: linear-gradient(to right, #1a3e72, #2a5298);
+            --main-header-bg: linear-gradient(to bottom, #4b6cb7, #182848);
+            --content-bg: #cdefd5;
+            --form-bg: #d7fada;
+            --input-bg: #f8fafc;
+            --input-border: #e0e6ed;
+            --info-bg: #f8fafc;
+            --info-border: #e0e6ed;
+            --footer-text: #4a6784;
+            --info-label-color: #4a6784;
+            --info-value-color: #54499f;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --header-bg: linear-gradient(to right, #0f3460, #1a1a2e);
+            --main-header-bg: linear-gradient(to bottom, #0f3460, #16213e);
+            --content-bg: #1b3a4b;
+            --form-bg: #1e555c;
+            --input-bg: #2c3e50;
+            --input-border: #3d5a80;
+            --info-bg: #2c3e50;
+            --info-border: #3d5a80;
+            --footer-text: #a8dadc;
+            --info-label-color: #a8dadc;
+            --info-value-color: #4cc9f0;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #f5f7fa;
+            background-color: var(--bg-color);
             font-family: 'Cairo', sans-serif;
             direction: rtl;
             text-align: right;
@@ -19,16 +53,19 @@
             align-items: flex-start;
             min-height: 100vh;
             padding: 20px 10px;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
             width: 100%;
             max-width: 800px;
-            background-color: #ffffff;
+            background-color: var(--container-bg);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             margin: 0 auto;
+            transition: background-color 0.3s ease;
         }
 
         .header-top-bar {
@@ -36,7 +73,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 15px;
-            background: linear-gradient(to right, #1a3e72, #2a5298);
+            background: var(--header-bg);
             color: white;
             font-size: 12px;
             font-weight: bold;
@@ -48,7 +85,7 @@
         }
 
         .header-main {
-            background: linear-gradient(to bottom, #4b6cb7, #182848);
+            background: var(--main-header-bg);
             padding: 20px 15px;
             text-align: center;
             color: white;
@@ -106,17 +143,18 @@
 
         .content-area {
             padding: 20px;
-            background-color: #cdefd5;
+            background-color: var(--content-bg);
+            transition: background-color 0.3s ease;
         }
 
         .result-intro {
             text-align: center;
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: var(--text-color);
             font-size: 16px;
             font-weight: bold;
             padding-bottom: 10px;
-            border-bottom: 2px dashed #e0e6ed;
+            border-bottom: 2px dashed var(--input-border);
             line-height: 1.4;
         }
 
@@ -125,7 +163,8 @@
             flex-direction: column;
             gap: 15px;
             margin-bottom: 20px;
-            background-color: #d7fada;
+            background-color: var(--form-bg);
+            transition: background-color 0.3s ease;
         }
 
         .form-row {
@@ -136,18 +175,18 @@
 
         .form-row label {
             font-size: 14px;
-            color: #2c3e50;
+            color: var(--text-color);
             font-weight: bold;
             margin-right: 8px;
         }
 
         .form-control {
             padding: 10px 12px;
-            border: 2px solid #e0e6ed;
+            border: 2px solid var(--input-border);
             border-radius: 6px;
             font-size: 14px;
-            background-color: #f8fafc;
-            color: #2c3e50;
+            background-color: var(--input-bg);
+            color: var(--text-color);
             text-align: right;
             direction: rtl;
             transition: all 0.3s ease;
@@ -215,11 +254,12 @@
         }
 
         .student-info-section {
-            background-color: #f8fafc;
-            border: 2px solid #e0e6ed;
+            background-color: var(--info-bg);
+            border: 2px solid var(--info-border);
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 6px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .student-info-section h2 {
@@ -228,7 +268,7 @@
             margin-top: 0;
             margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 2px dashed #e0e6ed;
+            border-bottom: 2px dashed var(--input-border);
         }
 
         .info-row {
@@ -251,12 +291,13 @@
         }
 
         .result-status-section {
-            background-color: #f8fafc;
-            border: 2px solid #e0e6ed;
+            background-color: var(--info-bg);
+            border: 2px solid var(--info-border);
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 6px;
             text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .result-status-section h2 {
@@ -265,7 +306,7 @@
             margin-top: 0;
             margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 2px dashed #e0e6ed;
+            border-bottom: 2px dashed var(--input-border);
         }
 
         .result-box {
@@ -316,7 +357,7 @@
         .total-value {
             color: #2c3e50;
             font-weight: bold;
-            background-color: #e0e6ed;
+            background-color: var(--input-border);
             padding: 4px 12px;
             border-radius: 15px;
         }
@@ -360,9 +401,10 @@
 
         .result-footer p {
             margin: 5px 0;
-            color: #4a6784;
+            color: var(--footer-text);
             font-weight: bold;
             line-height: 1.4;
+            transition: color 0.3s ease;
         }
 
         .hidden {
@@ -377,6 +419,66 @@
 
         .form-container {
             animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Dark mode toggle button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--container-bg);
+            border: 2px solid var(--input-border);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .dark-mode-toggle i {
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        /* تعديلات للوضع الداكن لتحسين إظهار النص */
+        .dark-mode .info-label {
+            color: var(--info-label-color);
+        }
+
+        .dark-mode .info-value {
+            color: var(--info-value-color);
+        }
+
+        .dark-mode .student-info-section h2,
+        .dark-mode .result-status-section h2 {
+            color: #4cc9f0;
+        }
+
+        .dark-mode .total-label {
+            color: var(--info-label-color);
+        }
+
+        .dark-mode .total-value {
+            color: var(--text-color);
+            background-color: var(--input-border);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .dark-mode-toggle i {
+            font-size: 24px;
+            color: var(--text-color);
         }
 
         /* Responsive adjustments */
@@ -427,6 +529,17 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .dark-mode-toggle {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                left: 15px;
+            }
+
+            .dark-mode-toggle i {
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 400px) {
@@ -445,8 +558,14 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- زر الوضع الداكن الجديد في الأعلى -->
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i id="darkModeIcon" class="fas fa-moon"></i>
+    </div>
+
     <div class="container">
         <div id="page1">
             <div class="header-top-bar">
@@ -594,6 +713,76 @@
         const studentData = 
 {
     "1": {
+        "22": {
+            "name": "روان طلبه فرج شلبى الشافعى",
+            "specialization": "فني تركيبات كهربية",
+            "total": 151.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "23": {
+            "name": "زهور ابراهيم عبدالفتاح يوسف",
+            "specialization": "فني تركيبات كهربية",
+            "total": 141.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "24": {
+            "name": "ساره محمد اسماعيل السيد سليمان",
+            "specialization": "فني تركيبات كهربية",
+            "total": 114.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "25": {
+            "name": "ساميه محمد عبد البارى حسانين ابراهيم",
+            "specialization": "فني تركيبات كهربية",
+            "total": 151.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "26": {
+            "name": "سلمى محمد صابر محمد ",
+            "specialization": "فني تركيبات كهربية",
+            "total": 147.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "27": {
+            "name": "شروق احمد محمود عبد الحميد",
+            "specialization": "فني تركيبات كهربية",
+            "total": 130.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "28": {
+            "name": "فاطمه محمد عطيه على منصور",
+            "specialization": "فني تركيبات كهربية",
+            "total": 144.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "29": {
+            "name": "لميس ايمن ابراهيم عبد العال",
+            "specialization": "فني تركيبات كهربية",
+            "total": 135.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "30": {
+            "name": "لؤه محمد عبد المنعم السيد",
+            "specialization": "فني تركيبات كهربية",
+            "total": 138.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "31": {
+            "name": "ملك حمدى عبد الرحمن جلال",
+            "specialization": "فني تركيبات كهربية",
+            "total": 7.0,
+            "max": 200,
+            "status": "fail"
+        },
         "1": {
             "name": "ابراهيم عبد الله السيد محمد ابراهيم محمود",
             "specialization": "فني تركيبات كهربية",
@@ -741,167 +930,6 @@
             "max": 200,
             "status": "pass"
         },
-        "22": {
-            "name": "روان طلبه فرج شلبى الشافعى",
-            "specialization": "فني تركيبات كهربية",
-            "total": 151.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "23": {
-            "name": "زهور ابراهيم عبدالفتاح يوسف",
-            "specialization": "فني تركيبات كهربية",
-            "total": 141.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "24": {
-            "name": "ساره محمد اسماعيل السيد سليمان",
-            "specialization": "فني تركيبات كهربية",
-            "total": 114.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "25": {
-            "name": "ساميه محمد عبد البارى حسانين ابراهيم",
-            "specialization": "فني تركيبات كهربية",
-            "total": 151.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "26": {
-            "name": "سلمى محمد صابر محمد ",
-            "specialization": "فني تركيبات كهربية",
-            "total": 147.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "27": {
-            "name": "شروق احمد محمود عبد الحميد",
-            "specialization": "فني تركيبات كهربية",
-            "total": 130.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "28": {
-            "name": "فاطمه محمد عطيه على منصور",
-            "specialization": "فني تركيبات كهربية",
-            "total": 144.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "29": {
-            "name": "لميس ايمن ابراهيم عبد العال",
-            "specialization": "فني تركيبات كهربية",
-            "total": 135.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "30": {
-            "name": "لؤه محمد عبد المنعم السيد",
-            "specialization": "فني تركيبات كهربية",
-            "total": 138.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "31": {
-            "name": "ملك حمدى عبد الرحمن جلال",
-            "specialization": "فني تركيبات كهربية",
-            "total": 7.0,
-            "max": 200,
-            "status": "fail"
-        },
-        "32": {
-            "name": "ابراهيم ناصر عبدالعزيز",
-            "specialization": "فني تبريد وتكييف",
-            "total": 124.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "33": {
-            "name": "شعيب عبد الحميد شعيب احمد عبد العال",
-            "specialization": "فني تبريد وتكييف",
-            "total": 55.0,
-            "max": 200,
-            "status": "fail"
-        },
-        "34": {
-            "name": "عبد الرحمن مسعود فضل الله حامد",
-            "specialization": "فني تبريد وتكييف",
-            "total": 112.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "35": {
-            "name": "عبدالرحمن احمد العربى حسن محمد",
-            "specialization": "فني تبريد وتكييف",
-            "total": 106.0,
-            "max": 200,
-            "status": "fail"
-        },
-        "36": {
-            "name": "عمر عبد العاطي ابوزيد عبدالله",
-            "specialization": "فني تبريد وتكييف",
-            "total": 117.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "37": {
-            "name": "كريم محمد سيد احمد محمد",
-            "specialization": "فني تبريد وتكييف",
-            "total": 119.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "38": {
-            "name": "محمد سعيد احمد ابراهيم",
-            "specialization": "فني تبريد وتكييف",
-            "total": 119.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "39": {
-            "name": "محمد سليمان محمد ابوسليمان ابوالوفا",
-            "specialization": "فني تبريد وتكييف",
-            "total": 133.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "40": {
-            "name": "محمد هانى بركات فرج بركات",
-            "specialization": "فني تبريد وتكييف",
-            "total": 126.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "41": {
-            "name": "محمود تامر منسي سلامه",
-            "specialization": "فني تبريد وتكييف",
-            "total": 126.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "42": {
-            "name": "مروان محمد عبد الستار القطب سلطان",
-            "specialization": "فني تبريد وتكييف",
-            "total": 116.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "43": {
-            "name": "مصطفي عبد السميع مصطفي عبد الرحمن",
-            "specialization": "فني تبريد وتكييف",
-            "total": 124.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "44": {
-            "name": "يوسف محمد محمد منصور ابو الهنا",
-            "specialization": "فني تبريد وتكييف",
-            "total": 100.0,
-            "max": 200,
-            "status": "fail"
-        },
         "45": {
             "name": "اسراء احمد السيد احمد الجوهرى",
             "specialization": "فني تبريد وتكييف",
@@ -979,6 +1007,84 @@
             "max": 200,
             "status": "pass"
         },
+        "32": {
+            "name": "ابراهيم ناصر عبدالعزيز",
+            "specialization": "فني تبريد وتكييف",
+            "total": 124.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "33": {
+            "name": "شعيب عبد الحميد شعيب احمد عبد العال",
+            "specialization": "فني تبريد وتكييف",
+            "total": 55.0,
+            "max": 200,
+            "status": "fail"
+        },
+        "34": {
+            "name": "عبد الرحمن مسعود فضل الله حامد",
+            "specialization": "فني تبريد وتكييف",
+            "total": 112.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "36": {
+            "name": "عمر عبد العاطي ابوزيد عبدالله",
+            "specialization": "فني تبريد وتكييف",
+            "total": 117.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "37": {
+            "name": "كريم محمد سيد احمد محمد",
+            "specialization": "فني تبريد وتكييف",
+            "total": 119.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "38": {
+            "name": "محمد سعيد احمد ابراهيم",
+            "specialization": "فني تبريد وتكييف",
+            "total": 119.5,
+            "max": 200,
+            "status": "retake"
+        },
+        "39": {
+            "name": "محمد سليمان محمد ابوسليمان ابوالوفا",
+            "specialization": "فني تبريد وتكييف",
+            "total": 133.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "40": {
+            "name": "محمد هانى بركات فرج بركات",
+            "specialization": "فني تبريد وتكييف",
+            "total": 126.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "41": {
+            "name": "محمود تامر منسي سلامه",
+            "specialization": "فني تبريد وتكييف",
+            "total": 126.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "42": {
+            "name": "مروان محمد عبد الستار القطب سلطان",
+            "specialization": "فني تبريد وتكييف",
+            "total": 116.5,
+            "max": 200,
+            "status": "retake"
+        },
+        "43": {
+            "name": "مصطفي عبد السميع مصطفي عبد الرحمن",
+            "specialization": "فني تبريد وتكييف",
+            "total": 124.5,
+            "max": 200,
+            "status": "pass"
+        },
+
         "56": {
             "name": "ريم مسلم عياد حسين",
             "specialization": "فني تبريد وتكييف",
@@ -1063,352 +1169,352 @@
             "max": 200,
             "status": "fail"
         },
-        "67": {
-            "name": "ابراهيم حمدى السيد جويده السيد",
-            "specialization": "فني  سيارات",
-            "total": 93.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "68": {
-            "name": "أحمد محمد السيد علي حميد",
-            "specialization": "فني  سيارات",
-            "total": 91.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "69": {
-            "name": "احمد محمد سالم فريد سلام",
-            "specialization": "فني  سيارات",
-            "total": 20.5,
-            "max": 200,
-            "status": "fail"
-        },
-        "70": {
-            "name": "احمد نصيف سالم عبد الحليم سالم",
-            "specialization": "فني  سيارات",
-            "total": 107.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "71": {
-            "name": "اسامه محمد ابراهيم محمد",
-            "specialization": "فني  سيارات",
-            "total": 111.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "72": {
-            "name": "اسلام احمد احمد عوض السعدنى",
-            "specialization": "فني  سيارات",
-            "total": 130.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "73": {
-            "name": "اسلام محمد محمد سعد النعمانى",
-            "specialization": "فني  سيارات",
-            "total": 105.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "74": {
-            "name": "السيد عبالمقصود محمد حماد",
-            "specialization": "فني  سيارات",
-            "total": 126.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "75": {
-            "name": "حسن خاطر حسن سليمان",
-            "specialization": "فني  سيارات",
-            "total": 123.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "76": {
-            "name": "رمضان ممدوح رمضان السيد سعد",
-            "specialization": "فني  سيارات",
-            "total": 99.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "77": {
-            "name": "زياد حمادة سعد احمد",
-            "specialization": "فني  سيارات",
-            "total": 127.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "78": {
-            "name": "عادل محمد كمال ابراهيم عبد الله",
-            "specialization": "فني  سيارات",
-            "total": 115.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "79": {
-            "name": "عبدالرحمن نعيم حلمى سعيد حميده",
-            "specialization": "فني  سيارات",
-            "total": 105.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "80": {
-            "name": "عبدالله محمد يوسف محمد علي",
-            "specialization": "فني  سيارات",
-            "total": 101.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "81": {
-            "name": "عمر بهاء عبد الستار القطب",
-            "specialization": "فني  سيارات",
-            "total": 122.5,
-            "max": 200,
-            "status": "retake"
-        },
-        "82": {
-            "name": "فارس احمد عبدالحميد محمد حسن ابوصليحه",
-            "specialization": "فني  سيارات",
-            "total": 120.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "83": {
-            "name": "فتوح عبد العزيز محمد عبد العزيز غازى",
-            "specialization": "فني  سيارات",
-            "total": 120.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "84": {
-            "name": "فهد محمد حسين خليل",
-            "specialization": "فني  سيارات",
-            "total": 132.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "85": {
-            "name": "قاسم محمد محمود محمد قاسم",
-            "specialization": "فني  سيارات",
-            "total": 88.5,
-            "max": 200,
-            "status": "fail"
-        },
-        "86": {
-            "name": "كريم أحمد محمد على متولى",
-            "specialization": "فني  سيارات",
-            "total": 103.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "87": {
-            "name": "مازن سعيد محمد هلال",
-            "specialization": "فني  سيارات",
-            "total": 106.0,
-            "max": 200,
-            "status": "fail"
-        },
-        "88": {
-            "name": "محمد ابراهيم محمد سلامه",
-            "specialization": "فني  سيارات",
-            "total": 138.0,
-            "max": 200,
-            "status": "pass"
-        },
-        "89": {
-            "name": "محمد احمد جمعه عبد السلام عبد العزيز",
-            "specialization": "فني  سيارات",
-            "total": 108.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "90": {
-            "name": "محمد احمد عنانى محمد عامر",
-            "specialization": "فني  سيارات",
-            "total": 112.0,
-            "max": 200,
-            "status": "retake"
-        },
-        "91": {
-            "name": "محمد إسماعيل محمد إسماعيل",
-            "specialization": "فني  سيارات",
-            "total": 130.5,
-            "max": 200,
-            "status": "pass"
-        },
-        "92": {
-            "name": "محمد اشرف عبدالحميد على يونس",
-            "specialization": "فني  سيارات",
-            "total": 134.0,
-            "max": 200,
-            "status": "pass"
-        },
         "93": {
             "name": "محمد السعيد المرسى عبد الله المرسى",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 109.0,
             "max": 200,
             "status": "retake"
         },
         "94": {
             "name": "محمد تامر محمود أحمد",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 124.5,
             "max": 200,
             "status": "pass"
         },
         "95": {
             "name": "محمد رياض يوسف محمد على صلاح",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 102.5,
             "max": 200,
             "status": "retake"
         },
         "96": {
             "name": "محمد سالم جمال سالم شحاته",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 103.5,
             "max": 200,
             "status": "retake"
         },
         "97": {
             "name": "محمد فريد ابراهيم احمد أيوب",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 118.5,
             "max": 200,
             "status": "pass"
         },
         "98": {
             "name": "محمد محمود فريد عبد الحميد القطارى",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 119.5,
             "max": 200,
             "status": "pass"
         },
         "99": {
             "name": "محمد ياسر موسي احمد موسي",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 113.5,
             "max": 200,
             "status": "pass"
         },
         "100": {
             "name": "محمود صابر عبداللطيف حامد",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 106.0,
             "max": 200,
             "status": "retake"
         },
         "101": {
             "name": "مصطفى احمد خلاف عبد العزيز خلاف",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 119.5,
             "max": 200,
             "status": "pass"
         },
         "102": {
             "name": "معاذ محمد مسعد شحاته السيد",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 116.0,
             "max": 200,
             "status": "retake"
         },
         "103": {
             "name": "نور صبرى عبدالحميد محمد",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 125.0,
             "max": 200,
             "status": "pass"
         },
         "104": {
             "name": "يوسف السيد محمد عبد العال محمد",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 117.0,
             "max": 200,
             "status": "pass"
         },
         "105": {
             "name": "يوسف سعيد احمد يوسف النجار",
-            "specialization": "فني  سيارات",
+            "specialization": "فني سيارات",
             "total": 118.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "67": {
+            "name": "ابراهيم حمدى السيد جويده السيد",
+            "specialization": "فني سيارات",
+            "total": 93.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "68": {
+            "name": "أحمد محمد السيد علي حميد",
+            "specialization": "فني سيارات",
+            "total": 91.5,
+            "max": 200,
+            "status": "fail"
+        },
+        "69": {
+            "name": "احمد محمد سالم فريد سلام",
+            "specialization": "فني سيارات",
+            "total": 20.5,
+            "max": 200,
+            "status": "fail"
+        },
+        "70": {
+            "name": "احمد نصيف سالم عبد الحليم سالم",
+            "specialization": "فني سيارات",
+            "total": 107.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "71": {
+            "name": "اسامه محمد ابراهيم محمد",
+            "specialization": "فني سيارات",
+            "total": 111.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "72": {
+            "name": "اسلام احمد احمد عوض السعدنى",
+            "specialization": "فني سيارات",
+            "total": 130.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "73": {
+            "name": "اسلام محمد محمد سعد النعمانى",
+            "specialization": "فني سيارات",
+            "total": 105.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "74": {
+            "name": "السيد عبالمقصود محمد حماد",
+            "specialization": "فني سيارات",
+            "total": 126.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "75": {
+            "name": "حسن خاطر حسن سليمان",
+            "specialization": "فني سيارات",
+            "total": 123.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "76": {
+            "name": "رمضان ممدوح رمضان السيد سعد",
+            "specialization": "فني سيارات",
+            "total": 99.5,
+            "max": 200,
+            "status": "retake"
+        },
+        "77": {
+            "name": "زياد حمادة سعد احمد",
+            "specialization": "فني سيارات",
+            "total": 127.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "78": {
+            "name": "عادل محمد كمال ابراهيم عبد الله",
+            "specialization": "فني سيارات",
+            "total": 115.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "79": {
+            "name": "عبدالرحمن نعيم حلمى سعيد حميده",
+            "specialization": "فني سيارات",
+            "total": 105.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "80": {
+            "name": "عبدالله محمد يوسف محمد علي",
+            "specialization": "فني سيارات",
+            "total": 101.5,
+            "max": 200,
+            "status": "retake"
+        },
+        "81": {
+            "name": "عمر بهاء عبد الستار القطب",
+            "specialization": "فني سيارات",
+            "total": 122.5,
+            "max": 200,
+            "status": "retake"
+        },
+        "82": {
+            "name": "فارس احمد عبدالحميد محمد حسن ابوصليحه",
+            "specialization": "فني سيارات",
+            "total": 120.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "83": {
+            "name": "فتوح عبد العزيز محمد عبد العزيز غازى",
+            "specialization": "فني سيارات",
+            "total": 120.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "84": {
+            "name": "فهد محمد حسين خليل",
+            "specialization": "فني سيارات",
+            "total": 132.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "85": {
+            "name": "قاسم محمد محمود محمد قاسم",
+            "specialization": "فني سيارات",
+            "total": 88.5,
+            "max": 200,
+            "status": "fail"
+        },
+        "86": {
+            "name": "كريم أحمد محمد على متولى",
+            "specialization": "فني سيارات",
+            "total": 103.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "87": {
+            "name": "مازن سعيد محمد هلال",
+            "specialization": "فني سيارات",
+            "total": 106.0,
+            "max": 200,
+            "status": "fail"
+        },
+        "88": {
+            "name": "محمد ابراهيم محمد سلامه",
+            "specialization": "فني سيارات",
+            "total": 138.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "89": {
+            "name": "محمد احمد جمعه عبد السلام عبد العزيز",
+            "specialization": "فني سيارات",
+            "total": 108.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "90": {
+            "name": "محمد احمد عنانى محمد عامر",
+            "specialization": "فني سيارات",
+            "total": 112.0,
+            "max": 200,
+            "status": "retake"
+        },
+        "91": {
+            "name": "محمد إسماعيل محمد إسماعيل",
+            "specialization": "فني سيارات",
+            "total": 130.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "92": {
+            "name": "محمد اشرف عبدالحميد على يونس",
+            "specialization": "فني سيارات",
+            "total": 134.0,
             "max": 200,
             "status": "pass"
         },
         "106": {
             "name": "أحمد نادر يسرى رمضان",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 99.5,
             "max": 150,
             "status": "pass"
         },
         "107": {
             "name": "حسام عادل سليم سلمى سليم",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 91.5,
             "max": 150,
             "status": "pass"
         },
         "108": {
             "name": "زياد احمد عبدالغنى عطية حسن",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 91.0,
             "max": 150,
             "status": "pass"
         },
         "109": {
             "name": "عبدالرحمن احمد رجب كامل عبد الكريم",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 94.0,
             "max": 150,
             "status": "pass"
         },
         "110": {
             "name": "عزب السيد ابراهبم محمد",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 82.0,
             "max": 150,
             "status": "retake"
         },
         "111": {
             "name": "على السيد عبدالمنعم",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 88.0,
             "max": 150,
             "status": "pass"
         },
         "112": {
             "name": "عمر جمال نصر الدين",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 88.0,
             "max": 150,
             "status": "pass"
         },
         "113": {
             "name": "عمر سعيد سلامه ابراهيم",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 94.0,
             "max": 150,
             "status": "pass"
         },
         "114": {
             "name": "عمر محمود جمعه محمد سرور عبد الله",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 89.5,
             "max": 150,
             "status": "pass"
         },
         "115": {
             "name": "محمد حمد داود سالم",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 83.5,
             "max": 150,
             "status": "pass"
         },
         "116": {
             "name": "محمود محمد احمد على احمد",
-            "specialization": "فني صيانة وتحكم صناعي",
+            "specialization": "فني صيانة وتحكم صناعي مزدوج",
             "total": 83.5,
             "max": 150,
             "status": "retake"
@@ -1467,35 +1573,98 @@
             "specialization": "فني صيانة ميكانيكية",
             "total": 83.5,
             "max": 150,
-            "status": "retake"
+            "status": "pass"
         },
         "125": {
             "name": "فارس هشام السيد احمد",
             "specialization": "فني صيانة ميكانيكية",
             "total": 79.5,
             "max": 150,
-            "status": "retake"
+            "status": "pass"
         },
         "126": {
             "name": "محمد عادل محمد عبدالعال",
             "specialization": "فني صيانة ميكانيكية",
             "total": 83.0,
             "max": 150,
-            "status": "retake"
+            "status": "pass"
         },
         "127": {
             "name": "محمد وليد محمد عيد احمد",
             "specialization": "فني صيانة ميكانيكية",
             "total": 82.5,
             "max": 150,
-            "status": "retake"
+            "status": "pass"
         },
         "128": {
             "name": "محمود السيد رمضان السيد",
             "specialization": "فني صيانة ميكانيكية",
             "total": 77.5,
             "max": 150,
-            "status": "retake"
+            "status": "pass"
+        },
+        "140": {
+            "name": "روايه السيد حسينى عبد الغفار احمد",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 129.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "141": {
+            "name": "سلمى السيد محمد الانور عطيه",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 138.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "142": {
+            "name": "شهد محمد سيد محمد",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 132.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "144": {
+            "name": "منه رمزى حسين محمد",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 129.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "145": {
+            "name": "نور عبد الخالق محمد ابراهيم محمد",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 141.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "146": {
+            "name": "نورهان ابراهيم سالم سليم",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 131.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "147": {
+            "name": "نورهان أشرف سلامة سالم",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 134.5,
+            "max": 200,
+            "status": "pass"
+        },
+        "148": {
+            "name": "نورهان هاشم محمد محمد سالم",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 139.0,
+            "max": 200,
+            "status": "pass"
+        },
+        "149": {
+            "name": "وفاء احمد طلعت مصطفى",
+            "specialization": "فني تبريد وتكييف خدمات",
+            "total": 141.5,
+            "max": 200,
+            "status": "pass"
         },
         "129": {
             "name": "سيد غريب محمد عبد الوهاب",
@@ -1524,13 +1693,6 @@
             "total": 131.5,
             "max": 200,
             "status": "pass"
-        },
-        "133": {
-            "name": "محمد عبدالقادر محمد عبدالقادر بشير لبيب",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 116.0,
-            "max": 200,
-            "status": "fail"
         },
         "134": {
             "name": "محمد محمد بغدادى ابو زيد",
@@ -1574,68 +1736,110 @@
             "max": 200,
             "status": "pass"
         },
-        "140": {
-            "name": "روايه السيد حسينى عبد الغفار احمد",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 129.0,
-            "max": 200,
-            "status": "pass"
+        "200": {
+            "name": "احمد سليمان سالم محمد",
+            "specialization": "تبريد عمال",
+            "total": 439.5,
+            "max": 700,
+            "status": "retake"
         },
-        "141": {
-            "name": "سلمى السيد محمد الانور عطيه",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 138.5,
-            "max": 200,
-            "status": "pass"
+        "201": {
+            "name": "احمد عبد السلام عادل عطية",
+            "specialization": "تبريد عمال",
+            "total": 430.0,
+            "max": 700,
+            "status": "retake"
         },
-        "142": {
-            "name": "شهد محمد سيد محمد",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 132.5,
-            "max": 200,
-            "status": "pass"
+        "202": {
+            "name": "حذيفة محمود عبدالله احمد يوسف",
+            "specialization": "تبريد عمال",
+            "total": 423.5,
+            "max": 700,
+            "status": "retake"
         },
-        "143": {
-            "name": "منة الله يحى ممدوح السيد",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 140.0,
-            "max": 200,
+        "206": {
+            "name": "احمد محمد صبري محمد عبد الحليم",
+            "specialization": "تبريد عمال",
+            "total": 422.5,
+            "max": 700,
+            "status": "retake"
+        },
+        "208": {
+            "name": "محمد عبد الجليل مسعد عبد الجليل",
+            "specialization": "تبريد عمال",
+            "total": 427.0,
+            "max": 700,
+            "status": "retake"
+        },
+        "209": {
+            "name": "يوسف عصام شحاته احمد",
+            "specialization": "تبريد عمال",
+            "total": 433.5,
+            "max": 700,
+            "status": "retake"
+        },
+        "211": {
+            "name": "كريم عبد الجليل مسعد عبد الجليل",
+            "specialization": "تبريد عمال",
+            "total": 415.5,
+            "max": 700,
+            "status": "retake"
+        },
+        "213": {
+            "name": "محمد سعيد عبدالسلام السيد",
+            "specialization": "تبريد عمال",
+            "total": 432.5,
+            "max": 700,
+            "status": "retake"
+        },
+        "203": {
+            "name": "حسان سليمان حسان عبد الله",
+            "specialization": "تبريد عمال",
+            "total": 354.5,
+            "max": 700,
             "status": "fail"
         },
-        "145": {
-            "name": "نور عبد الخالق محمد ابراهيم محمد",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 141.0,
-            "max": 200,
-            "status": "pass"
+        "204": {
+            "name": "سلامة السيد سلامة عواد سلامة",
+            "specialization": "تبريد عمال",
+            "total": 406.5,
+            "max": 700,
+            "status": "fail"
         },
-        "146": {
-            "name": "نورهان ابراهيم سالم سليم",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 131.0,
-            "max": 200,
-            "status": "pass"
+        "205": {
+            "name": "سيف سليمان حسان عبد الله",
+            "specialization": "تبريد عمال",
+            "total": 296.0,
+            "max": 700,
+            "status": "fail"
         },
-        "147": {
-            "name": "نورهان أشرف سلامة سالم",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 134.5,
-            "max": 200,
-            "status": "pass"
+        "207": {
+            "name": "عبد الرحمن عباس يوسف حسين",
+            "specialization": "تبريد عمال",
+            "total": 411.0,
+            "max": 700,
+            "status": "fail"
         },
-        "148": {
-            "name": "نورهان هاشم محمد محمد سالم",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 139.0,
-            "max": 200,
-            "status": "pass"
+        "210": {
+            "name": "عبدالله رضا عبد الستار محمد عرفات",
+            "specialization": "تبريد عمال",
+            "total": 306.5,
+            "max": 700,
+            "status": "fail"
         },
-        "149": {
-            "name": "وفاء احمد طلعت مصطفى",
-            "specialization": "فني تبريد وتكييف خدمات",
-            "total": 141.5,
-            "max": 200,
-            "status": "pass"
+        "212": {
+            "name": "نبيل السيد عثمان طاهر",
+            "specialization": "تبريد عمال",
+            "total": 321.0,
+            "max": 700,
+            "status": "fail"
+        },
+        "214": {
+            "name": "عبد الحميد سعيد عبد الحميد محمد",
+            "specialization": "تبريد عمال",
+            "total": 371.5,
+            "max": 700,
+            "status": "fail"
         },
         "189": {
             "name": "زياد احمد عسران محمد",
@@ -1700,7 +1904,7 @@
             "max": 700,
             "status": "fail"
         },
-        "198": {
+        "235": {
             "name": "مريم احمد دسوقي",
             "specialization": "كهرباء عمال",
             "total": 425.5,
@@ -1767,111 +1971,6 @@
             "name": "يوسف حسن خليل خليل ابراهيم الاشقر",
             "specialization": "كهرباء عمال",
             "total": 323.0,
-            "max": 700,
-            "status": "fail"
-        },
-        "200": {
-            "name": "احمد سليمان سالم محمد",
-            "specialization": "تبريد عمال",
-            "total": 439.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "201": {
-            "name": "احمد عبد السلام عادل عطية",
-            "specialization": "تبريد عمال",
-            "total": 430.0,
-            "max": 700,
-            "status": "retake"
-        },
-        "202": {
-            "name": "حذيفة محمود عبدالله احمد يوسف",
-            "specialization": "تبريد عمال",
-            "total": 423.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "203": {
-            "name": "حسان سليمان حسان عبد الله",
-            "specialization": "تبريد عمال",
-            "total": 354.5,
-            "max": 700,
-            "status": "fail"
-        },
-        "204": {
-            "name": "سلامة السيد سلامة عواد سلامة",
-            "specialization": "تبريد عمال",
-            "total": 406.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "205": {
-            "name": "سيف سليمان حسان عبد الله",
-            "specialization": "تبريد عمال",
-            "total": 296.0,
-            "max": 700,
-            "status": "fail"
-        },
-        "206": {
-            "name": "احمد محمد صبري محمد عبد الحليم",
-            "specialization": "تبريد عمال",
-            "total": 422.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "207": {
-            "name": "عبد الرحمن عباس يوسف حسين",
-            "specialization": "تبريد عمال",
-            "total": 411.0,
-            "max": 700,
-            "status": "fail"
-        },
-        "208": {
-            "name": "محمد عبد الجليل مسعد عبد الجليل",
-            "specialization": "تبريد عمال",
-            "total": 427.0,
-            "max": 700,
-            "status": "retake"
-        },
-        "209": {
-            "name": "يوسف عصام شحاته احمد",
-            "specialization": "تبريد عمال",
-            "total": 433.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "210": {
-            "name": "عبدالله رضا عبد الستار محمد عرفات",
-            "specialization": "تبريد عمال",
-            "total": 306.5,
-            "max": 700,
-            "status": "fail"
-        },
-        "211": {
-            "name": "كريم عبد الجليل مسعد عبد الجليل",
-            "specialization": "تبريد عمال",
-            "total": 415.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "212": {
-            "name": "نبيل السيد عثمان طاهر",
-            "specialization": "تبريد عمال",
-            "total": 321.0,
-            "max": 700,
-            "status": "fail"
-        },
-        "213": {
-            "name": "محمد سعيد عبدالسلام السيد",
-            "specialization": "تبريد عمال",
-            "total": 432.5,
-            "max": 700,
-            "status": "retake"
-        },
-        "214": {
-            "name": "عبد الحميد سعيد عبد الحميد محمد",
-            "specialization": "تبريد عمال",
-            "total": 371.5,
             "max": 700,
             "status": "fail"
         },
@@ -1951,7 +2050,7 @@
             "total": 394.0,
             "max": 700,
             "status": "retake"
-        }  },
+        }       },
         
                 "2": {
                     "300": {
@@ -2910,7 +3009,6 @@
             
             }
         
-
             function showResult() {
                 const grade = document.getElementById('grade').value;
                 const seatNumber = document.getElementById('seatNumber').value.toString();
@@ -2982,6 +3080,34 @@
                 document.getElementById('seatNumber').value = '';
                 document.getElementById('grade').value = '';
             }
+
+            // وظيفة تبديل الوضع الداكن
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                const icon = document.getElementById('darkModeIcon');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            }
+
+            // التحقق من حالة الوضع الداكن عند تحميل الصفحة
+            function checkDarkMode() {
+                if (localStorage.getItem('darkMode') === 'enabled') {
+                    document.body.classList.add('dark-mode');
+                    document.getElementById('darkModeIcon').classList.remove('fa-moon');
+                    document.getElementById('darkModeIcon').classList.add('fa-sun');
+                }
+            }
+
+            // تشغيل التحقق عند تحميل الصفحة
+            window.onload = checkDarkMode;
         </script>
     </body>
     </html>
